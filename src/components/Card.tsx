@@ -2,7 +2,7 @@ type CardProps = {
   photoSrc: string;
 }
 
-function Card({photoSrc}: CardProps) {
+export default function Card({photoSrc}: CardProps) {
   return (
     <article className="cities__card place-card">
       <div className="cities__image-wrapper place-card__image-wrapper">
@@ -39,5 +39,3 @@ function Card({photoSrc}: CardProps) {
     </article>
   );
 }
-
-export default Card;
