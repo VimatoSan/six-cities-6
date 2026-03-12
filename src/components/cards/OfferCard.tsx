@@ -2,11 +2,12 @@ import {Offer} from '../../types/offer.ts';
 
 type CardProps = {
   offer: Offer;
+  onHover: () => void;
 }
 
-export default function OfferCard({offer}: CardProps) {
+export default function OfferCard({offer, onHover}: CardProps) {
   return (
-    <article className="cities__card place-card">
+    <article className="cities__card place-card" onMouseEnter={() => onHover()}>
       {offer.isPremium && (
         <div className="place-card__mark">
           <span>Premium</span>
