@@ -1,10 +1,10 @@
-import {Offer} from '../types/offer.ts';
+import {Offer} from '../../types/offer.ts';
 
 type CardProps = {
   offer: Offer;
 }
 
-export default function Card({offer}: CardProps) {
+export default function OfferCard({offer}: CardProps) {
   return (
     <article className="cities__card place-card">
       {offer.isPremium && (

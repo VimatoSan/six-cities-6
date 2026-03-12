@@ -1,6 +1,6 @@
-import Card from '../components/Card.tsx';
 import Logo from '../components/Logo.tsx';
 import {Offer} from '../types/offer.ts';
+import OffersList from '../components/cards/OffersList.tsx';
 
 type MainPageProps = {
   placesCount: number;
@@ -95,7 +95,7 @@ export default function MainPage({placesCount, offers}: MainPageProps) {
                 </ul>
               </form>
               <div className="cities__places-list places__list tabs__content">
-                {offers.map((offer) => <Card key={offer.id} offer={offer} />)}
+                <OffersList offers={offers}/>
               </div>
             </section>
             <div className="cities__right-section">
