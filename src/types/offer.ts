@@ -27,17 +27,9 @@ export type OfferDetailed = {
   price: number;
   city: {
     name: string;
-    location: {
-      latitude: number;
-      longitude: number;
-      zoom: number;
-    };
+    location: Location;
   };
-  location: {
-    latitude: number;
-    longitude: number;
-    zoom: number;
-  };
+  location: Location;
   isFavorite: boolean;
   isPremium: boolean;
   rating: number;
