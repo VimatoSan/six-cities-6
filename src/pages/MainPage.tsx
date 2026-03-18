@@ -1,6 +1,7 @@
 import Logo from '../components/Logo.tsx';
 import {Offer} from '../types/offer.ts';
 import OffersList from '../components/cards/OffersList.tsx';
+import Map from '../components/Map.tsx';
 
 type MainPageProps = {
   placesCount: number;
@@ -8,6 +9,7 @@ type MainPageProps = {
 }
 
 export default function MainPage({placesCount, offers}: MainPageProps) {
+  const points = offers.map((o) => o.city.location);
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -97,7 +99,9 @@ export default function MainPage({placesCount, offers}: MainPageProps) {
               <OffersList offers={offers}/>
             </section>
             <div className="cities__right-section">
-              <section className="cities__map map"></section>
+              <section className="cities__map map" style={{ backgroundImage: 'none' }}>
+                <Map city={points[0]} points={points} selectedPoint={null}/>
+              </section>
             </div>
           </div>
         </div>
