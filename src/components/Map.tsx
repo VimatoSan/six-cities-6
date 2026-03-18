@@ -6,7 +6,7 @@ import {URL_MARKER_CURRENT, URL_MARKER_DEFAULT} from '../const.ts';
 import 'leaflet/dist/leaflet.css';
 
 type MapProps = {
-  city: Location;
+  mapCenter: Location;
   points: Location[];
   selectedPoint: Location | null;
 };
@@ -25,9 +25,9 @@ const currentCustomIcon = new Icon({
 
 
 export default function Map(props: MapProps) {
-  const {city, points, selectedPoint} = props;
+  const {mapCenter, points, selectedPoint} = props;
   const mapRef = useRef(null);
-  const map = useMap(mapRef, city);
+  const map = useMap(mapRef, mapCenter);
 
   useEffect(() => {
     if (map) {
@@ -40,7 +40,7 @@ export default function Map(props: MapProps) {
 
         marker
           .setIcon(
-            selectedPoint !== undefined && point === selectedPoint
+            selectedPoint !== null && point === selectedPoint
               ? currentCustomIcon
               : defaultCustomIcon
           )

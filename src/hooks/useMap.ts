@@ -4,7 +4,7 @@ import {Location} from '../types/offer.ts';
 
 export default function useMap(
   mapRef: MutableRefObject<HTMLElement | null>,
-  city: Location
+  center: Location
 ): Map | null {
   const [map, setMap] = useState<Map | null>(null);
   const isRenderedRef = useRef<boolean>(false);
@@ -13,10 +13,10 @@ export default function useMap(
     if (mapRef.current !== null && !isRenderedRef.current) {
       const instance = new Map(mapRef.current, {
         center: {
-          lat: city.latitude,
-          lng: city.longitude
+          lat: center.latitude,
+          lng: center.longitude,
         },
-        zoom: 10
+        zoom: center.zoom
       });
 
       const layer = new TileLayer(
@@ -32,7 +32,7 @@ export default function useMap(
       setMap(instance);
       isRenderedRef.current = true;
     }
-  }, [mapRef, city]);
+  }, [mapRef, center]);
 
   return map;
 }

@@ -100,7 +100,7 @@ export default function MainPage({placesCount, offers}: MainPageProps) {
             </section>
             <div className="cities__right-section">
               <section className="cities__map map" style={{ backgroundImage: 'none' }}>
-                <Map city={points[0]} points={points} selectedPoint={null}/>
+                <Map mapCenter={points[0]} points={points} selectedPoint={null}/>
               </section>
             </div>
           </div>
