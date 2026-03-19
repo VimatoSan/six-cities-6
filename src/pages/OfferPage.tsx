@@ -2,16 +2,20 @@ import Logo from '../components/Logo.tsx';
 import ReviewForm from '../components/ReviewForm.tsx';
 import {useParams} from 'react-router-dom';
 import {findItemById} from '../utils.ts';
-import {detailedOffers} from '../mocks/offers.ts';
+import {detailedOffers, offers} from '../mocks/offers.ts';
 import PageNotFound from './PageNotFound.tsx';
 import ReviewsList from '../components/reviews/ReviewsList.tsx';
 import {Comment} from '../types/comment.ts';
+import Map from '../components/Map.tsx';
+import {MAX_NEIGHBOUR_POINTS} from '../const.ts';
 
 type OfferPageProps = {
   comments: Comment[];
 }
 
 export default function OfferPage({comments}: OfferPageProps) {
+  const neighbourPoints = offers.slice(0, MAX_NEIGHBOUR_POINTS);
+
   const params = useParams();
   const offerId = params.id;
   const detailedOffer = offerId && findItemById(detailedOffers, offerId);
@@ -138,7 +142,9 @@ export default function OfferPage({comments}: OfferPageProps) {
               </section>
             </div>
           </div>
-          <section className="offer__map map"></section>
+          <section className="offer__map map">
+            <Map mapCenter={neighbourPoints[0].location} points={neighbourPoints} selectedPoint={null}/>
+          </section>
         </section>
         <div className="container">
           <section className="near-places places">
