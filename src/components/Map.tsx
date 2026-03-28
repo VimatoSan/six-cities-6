@@ -32,6 +32,11 @@ export default function Map(props: MapProps) {
   useEffect(() => {
     if (map) {
       const markerLayer = layerGroup().addTo(map);
+      map.setView({
+        lat: mapCenter.latitude,
+        lng: mapCenter.longitude
+      });
+
       points.forEach((point) => {
         const marker = new Marker({
           lat: point.location.latitude,
@@ -51,7 +56,7 @@ export default function Map(props: MapProps) {
         map.removeLayer(markerLayer);
       };
     }
-  }, [map, points, selectedPoint]);
+  }, [map, mapCenter, points, selectedPoint]);
 
 
   return <div style={{height: '100%'}} ref={mapRef}></div>;
