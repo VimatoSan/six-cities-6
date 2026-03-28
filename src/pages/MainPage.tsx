@@ -5,7 +5,6 @@ import CitiesList from '../components/CitiesList.tsx';
 import {useAppDispatch, useAppSelector} from '../hooks/store.ts';
 import {setCity} from '../state/action.ts';
 import {filterOffersByCity} from '../utils.ts';
-import {DEFAULT_LOCATION} from '../const.ts';
 import MainEmptyPage from './MainEmptyPage.tsx';
 
 
@@ -74,7 +73,7 @@ export default function MainPage() {
             </section>
             <div className="cities__right-section">
               <section className="cities__map map" style={{ backgroundImage: 'none' }}>
-                <Map mapCenter={offersByCity[0]?.location || DEFAULT_LOCATION} points={offersByCity} selectedPoint={null}/>
+                <Map mapCenter={offersByCity[0].location} points={offersByCity} selectedPoint={null}/>
               </section>
             </div>
           </div>

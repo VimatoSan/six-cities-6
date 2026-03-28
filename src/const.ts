@@ -1,5 +1,3 @@
-import { Location } from './types/offer.ts';
-
 export enum AppRoute {
   Login = '/login',
   Favorites = '/favorites',
@@ -14,12 +12,6 @@ export enum AuthorizationStatus {
   NoAuth = 'NO_AUTH',
   Unknown = 'UNKNOWN',
 }
-
-export const DEFAULT_LOCATION: Location = {
-  latitude: 48.8566,
-  longitude: 2.3522,
-  zoom: 8
-};
 
 export const CITIES = ['Paris', 'Cologne', 'Brussels', 'Amsterdam', 'Hamburg', 'Dusseldorf'];
 export const URL_MARKER_DEFAULT = 'img/pin.svg';
